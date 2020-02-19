@@ -17,7 +17,7 @@ imageSizeH = 1080
 class CompImages(object):
     def __init__(self, imagesPath, outputPath, imageFomat=None):
         self.imagesPath = imagesPath
-        self.outputPath = imagesPath
+        self.outputPath = outputPath
         self.imageFomat = ['.tif', '.tiff']
         self.tempPath = (self.outputPath + '/temp/')
         self.imagesName = [i for i in os.listdir(self.imagesPath) for item in self.imageFomat if
@@ -75,6 +75,6 @@ class CompImages(object):
 
 
 if __name__=='__main__':
-    # run=CompImages(os.path.dirname(__file__), os.path.dirname(__file__))
-    run = CompImages('/Users/CK/Downloads/', '/Users/CK/Desktop/')
+    run=CompImages(os.path.dirname(__file__), os.path.dirname(__file__))
+    # run = CompImages('/Volumes/projects/BLK/Season_06/Output/BLK06_EP11/Keyframe/', '/Users/CK/Desktop/')
     run.addFont()

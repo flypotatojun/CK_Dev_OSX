@@ -15,9 +15,9 @@ imageSizeH = 1080
 
 
 class CompImages(object):
-    def __init__(self, imagesPath=(), outputPath=(), imageFomat=[]):
-        self.imagesPath = os.path.dirname(__file__)
-        self.outputPath = os.path.dirname(__file__)
+    def __init__(self, imagesPath, outputPath, imageFomat=None):
+        self.imagesPath = imagesPath
+        self.outputPath = imagesPath
         self.imageFomat = ['.tif', '.tiff']
         self.tempPath = (self.outputPath + '/temp/')
         self.imagesName = [i for i in os.listdir(self.imagesPath) for item in self.imageFomat if
@@ -27,7 +27,7 @@ class CompImages(object):
         if not os.path.exists(self.tempPath):
             os.mkdir(self.tempPath)
 
-        self.fileName = (self.imagesName[3].split('.')[0])[0:10]
+        self.fileName = (self.imagesName[0].split('.')[0])[0:10]
         print(self.fileName)
 
     def addFont(self):
@@ -75,6 +75,6 @@ class CompImages(object):
 
 
 if __name__=='__main__':
-    # a=CompImages('/Users/CK/Downloads/test/', '/Users/CK/Desktop/')
-    run = CompImages()
+    # run=CompImages(os.path.dirname(__file__), os.path.dirname(__file__))
+    run = CompImages('/Users/CK/Downloads/', '/Users/CK/Desktop/')
     run.addFont()
